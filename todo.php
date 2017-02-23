@@ -4,6 +4,8 @@
 <div id="page">
 
 <?php
+
+//////////////////////////////////////////////////////
 	if(empty($_SESSION['tasks'])){
 		$_SESSION['tasks'] = 1;
 	}elseif (isset($_POST['add'])){
