@@ -1,0 +1,297 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+#main {
+	width:80%;
+	height: 100%;
+	margin:auto;
+	background-color: gray;
+	/*padding:10px;*/
+	/*border:black solid 1px;*/
+}
+
+#nav {
+	height: 200px;
+	background-color: #FF6138;
+	color: white;
+	/*margin:auto ;*/
+}
+
+#nav h1 {
+    /*padding: 70px 30px;*/
+    position:relative;
+    top:70px;
+    left:30px;
+}
+
+#nav p {
+    position:relative;
+    top:70px;
+    left:30px;   
+}
+
+#nav p a {
+    color: #b0ea88;
+}
+
+#menu {
+	/* width:20%; */
+	background-color: #00A388;
+	/* float:left; */
+	/* height :100%; */
+	/* display:inline-block; */
+}
+
+ul {
+	text-decoration:none;
+	list-style-type: none;	
+}
+#page {
+	Padding:30px;
+	/* width:100%; */
+	background-color: #79BD8F;
+	height:100%;
+	/* float:right; */
+	/* position:relative; */
+}
+
+.selected {
+	font-weight: bold;
+	text-decoration:none;
+	list-style-type: none;
+	font-style: red;
+}
+
+.selected a {
+	color:#b0ea88;
+}
+
+.form_container{
+	margin: 60 auto;
+    width: 500px;
+    height: 300px;
+    background-color: rgba(185, 95, 137, 0.7);
+    padding-top: 50px;
+	position:relative;
+}
+
+.error_msg {
+	position: absolute;
+    top: -60px;
+    width: 475px;
+    height: 80px;
+    background: brown;
+	padding-left: 25px;
+    padding-top: 5px;
+}
+
+.reg_form {
+	margin: auto;
+    padding-top: 20px;
+    width: 350px;
+}
+
+.checkbox {
+	width:20px;
+	height : 20px;
+	display: inline;
+}
+
+.reg_form  input:not(.checkbox), .edit_title, .edit_content {
+	width: 350px;
+    height: 40px;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+	padding-left: 30px;
+	color: darkgrey;
+}
+
+button {
+	width: 250px;
+    height: 40px;
+    font-size: 16px;
+    display: block;
+    margin:auto;
+    border-radius: 5px;
+    border: none;
+	box-shadow: inset 0 -12px 10px 0px rgba(128, 116, 116, 0.2);
+}
+
+button:hover {
+	/* width: 250px; */
+    /* height: 40px; */
+    /* font-size: 16px; */
+    /* display: block; */
+    /* margin:auto; */
+    border-radius: 5px;
+    border: none;
+	box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2);
+}
+
+button:active {
+	/* width: 250px; */
+    /* height: 40px; */
+    /* font-size: 16px; */
+    /* display: block; */
+    /* margin:auto; */
+    border-radius: 5px;
+    border: none;
+	box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2);
+	background-color:#d0adad;
+}
+
+.edit_page {
+	display:block;
+	width:80%;
+	margin:auto;
+	text-align:right;
+}
+
+.edit_title{
+	display:block;
+	width:100%;
+	height: 30px;
+	margin:5px 0;
+}
+
+.edit_content {
+	display:block;
+	width:100%;
+	height: 150px;
+	margin:5px 0;
+}
+
+.edit_page button {
+	width;200px;
+	height:40px;
+	position:relative;
+	right: 0px;
+	margin:5px 0;
+}
+	
+.todo_container{
+	width:700px;
+	margin:10px auto;
+	font-size: 18px;
+}
+
+.todo_task {
+	float: left;
+    /* margin: auto 10px; */
+    width: 540px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+	background-color: #ff6138;
+	/* background-color: #bd4d4d; */
+	text-align:center;
+	margin-right: 10px;
+	/* box-shadow: 0 5px 10px 0px rgba(56, 10, 10, 0.2); */
+}
+
+.todo_date{
+	/* margin:auto 10px; */
+    padding-bottom: 20px;
+    padding-top: 20px;
+	padding-right: 10px;
+	text-align:center;
+	/* float: right; */
+	background-color: #2a5851;
+    color: #ffdcdc;
+	/* box-shadow: 0 5px 10px 0px rgba(56, 10, 10, 0.2); */
+}
+
+.todo_delete {
+	width:680px;
+	border-radius:0;
+	box-shadow: inset 0 -12px 10px 0px rgba(128, 116, 116, 0.2);
+}
+
+.todo_publish {
+	background-color: #bd4d4d;
+	margin:auto 10px;
+    padding-left: 20px;
+	width:660px;
+	height: 20px;
+}
+
+.todo_task_input{
+	float:left;
+}
+
+.todo_date_input{
+	
+}
+
+
+
+/* ///////FUNCTIONAL MENU/////// */
+
+
+
+li.menu_li {
+    display: inline-block;
+    padding: 15px 20px;
+	position: relative;
+}
+
+ul.menu_ul {
+    padding: 0;
+    margin: 0;
+	
+}
+
+li.menu_li:hover {
+    background-color: aqua;
+}
+
+ul.page_ul {
+    position: absolute;
+    padding: 0;
+	margin-left: -20;
+    width: 150px;
+	margin-top: 10px;
+}
+
+.page_li {
+	padding:5px 0;
+	opacity: 0;
+	background-color: #1ce2e2;
+	position: absolute;
+	top:-30px;
+	
+}
+
+.menu_li:hover .page_li{
+	opacity: 1;
+	padding: 10px 20px;
+	position: relative;
+	top:0px;
+}
+
+.page_li:hover{
+	background-color: aqua;
+}
+
+.apps {
+	position: absolute;
+	right:0;
+	width: 150px;
+	background-color: #00a388;;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.apps a {
+	margin: 10px auto;
+	height: 30px;
+}
+
+#menu {
+	position: relative;
+}
