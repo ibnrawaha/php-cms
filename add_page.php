@@ -32,18 +32,18 @@
 		// var_dump($_POST);
 		
 		if(isset($_POST['add_page'])){
-			$page_title =$_POST['page_title'];
-			$page_content =$_POST['page_content'];
+			$page_title = mysqli_real_escape_string($conn, $_POST['page_title']);
+			$page_content = mysqli_real_escape_string ($conn, $_POST['page_content']);
 			
 			// defining new menu 
 			if(isset($_POST['new_menu']) && !isset ($_POST['exist_menu'])){
-				$new_menu = $_POST['new_menu'];
+				$new_menu = mysqli_real_escape_string($conn, $_POST['new_menu']);
 				$menu = "";
 			}elseif (isset($_POST['exist_menu']) && empty(trim($_POST['new_menu']))) {
-				$menu = $_POST['exist_menu'];
+				$menu = mysqli_real_escape_string($conn, $_POST['exist_menu']);
 				$new_menu = "";
 			}elseif (isset($_POST['new_menu']) && isset ($_POST['exist_menu'])){
-				$menu = $_POST['exist_menu'];
+				$menu = mysqli_real_escape_string($conn, $_POST['exist_menu']);
 				$new_menu = "";
 			}
 			
@@ -138,3 +138,4 @@
 
 
 </div>
+<?php include "includes/footer.php"; ?>

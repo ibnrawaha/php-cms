@@ -11,18 +11,21 @@
 		echo "<h2>" . ucwords(get_pages_data($conn , "pages")) . "</h2>";
 		if ($visible_for_admin == 1){
 			// echo you are in a none/visible menu and none/visible page.
-			echo "
+			echo "<span class='page_status'>
 			** You are in a " . (get_visiblity($conn, "menu",null) == 1 ? "<b style='color:green;'>Visible Menu </b>" : "<b style='color:red;'>None Visible Menu </b>") . "and a " . (get_visiblity($conn, null,"page") == 1 ? "<b style='color:green;'>Visible Page </b>**" : "<b style='color:red;'>None Visible Page</b> **")
 			;
-			echo "</pre>";
+			echo "</span>";
+			// echo "</pre>";
 		}
 		echo "<br>";
-		echo "<p>" . ucfirst(get_pages_data($conn , "content")) . "</p>";
+		echo "<div class='page_content'>" . ucfirst(get_pages_data($conn , "content")) . "</div>";
 		
 		//showing "Edit Page" link for admins only
 		if ($visible_for_admin == 1){
 			echo "<a href='index.php?menu=".strtolower(urlencode($selected_menu))."&page=".strtolower(urlencode($selected_page))."&edit=EditPage'>Edit Page</a>";
 		}
+	}else{
+		echo "<center><h1>Welcome to our website</h1></center>";
 	}
 
 	
@@ -30,8 +33,8 @@
 	if(isset($_GET['edit']) && $_GET['edit'] == "EditPage"){
 		echo '<div class="edit_page">';
 		echo '<form method="post" action="index.php?menu='.strtolower(urlencode($selected_menu)).'&page='.strtolower(urlencode($selected_page)).'&edit=EditPage">';
-		echo '<input type="text" name="title" class="edit_title">';
-		echo '<textarea type="text" name = "content" class="edit_content"></textarea>';
+		echo '<input type="text" name="title" class="edit_title" placeholder="Enter Page Title">';
+		echo '<textarea type="text" name = "content" class="edit_content" placeholder="Enter Page Content"></textarea>';
 		echo '<button type="submit" name ="edit">Edit Page</button>';
 		echo '</form>';
 		echo '</div>';
@@ -39,8 +42,8 @@
 		
 		//proccessing editing after submitting edits
 		if(isset($_POST['edit'])){
-			$edit_title = $_POST['title'];
-			$edit_content = $_POST['content'];
+			$edit_title = mysqli_real_escape_string ($conn, $_POST['title']);
+			$edit_content = mysqli_real_escape_string ($conn, $_POST['content']);
 			
 			// trim is a good way to avoid white spaces 
 			if(empty(trim($edit_title))){
@@ -66,7 +69,7 @@
 	
 	?>
 
-
+</div>
 
 <?php include "includes/footer.php"; ?>
 			

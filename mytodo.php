@@ -1,9 +1,16 @@
 <?php include "includes/header.php"; ?>
 <?php include_once "includes/menu.php"; ?>
-
 <div id="page">
-
 <?php
+	if(isset($_POST['delete'])){
+		$query = "DELETE FROM todo WHERE id = '".$_POST['delete']."';";
+		$delete_task = mysqli_query($conn, $query);
+		// if(!$delete_task){
+			// echo mysqli_error($conn);
+		// }
+		header ("Location: mytodo.php");
+		exit;
+	}
 	if(isset($_SESSION['username'])){
 		// tasks ordered by id descending
 		$query = "SELECT * FROM todo WHERE username = '".$_SESSION['username']."' ORDER BY id DESC;";
@@ -39,27 +46,21 @@
 				$counter ++ ;
 				$_SESSION['todo_counter'] = $counter;
 				// unset($_SESSION['todo_counter']);
-				echo '
-					<div class="todo_container">
-						<div class="todo_task">'.$row['task'].'</div>
-						<div class="todo_date">'.$row['date'].'</div>'
+				echo '<div class="todo_container">';
+				echo '<div class="todo_task">'.$row['task'].'</div>';
+				if ($row['date'] != 0){
+					echo '<div class="todo_date">'.$row['date'].'</div>';
+				}else{
+					echo '<div class="todo_date">No Date Set</div>';
+				}
 						// formate the date we've just created
-						.'<div class="todo_publish">'.date_format($date, 'Y-m-d H:i:s').'</div>
-						<div ><form action="mytodo.php" method="post" ><button name="delete" class="todo_delete" value='.$row['id'].'>Delete</button></form></div>
-					</div>
-				';
+				echo '<div class="todo_publish">'.date_format($date, 'Y-m-d H:i:s').'</div>';
+				echo '<div><form  method="post" ><button name="delete" class="todo_delete" value='.$row['id'].'>Delete</button></form></div></div>';
 				// echo $_POST['delete'];
 			}
 		}
 	}
-	if(isset($_POST['delete'])){
-		$query = "DELETE FROM todo WHERE id = '".$_POST['delete']."';";
-		$delete_task = mysqli_query($conn, $query);
-		if(!$delete_task){
-			echo mysqli_error($conn);
-		}
-		header ("Location: mytodo.php");
-	}
+
 ?>
 
 
@@ -86,3 +87,5 @@
 
 
 </div>
+
+<?php include "includes/footer.php"; ?>

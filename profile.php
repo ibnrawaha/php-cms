@@ -29,10 +29,10 @@
 	$errors = array();
 	
 	if(isset($_POST['submit'])){
-		$username = $_POST['username'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$repassword = $_POST['repassword'];
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
+		$email = mysqli_real_escape_string ($conn, $_POST['email']);
+		$password = mysqli_real_escape_string($conn, $_POST['password']);
+		$repassword = mysqli_real_escape_string($conn, $_POST['repassword']);
 		
 		// unique username
 		$query = "SELECT * FROM users WHERE username = '$username';";
@@ -97,3 +97,5 @@
 </div>
 
 
+
+<?php include "includes/footer.php"; ?>

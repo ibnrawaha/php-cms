@@ -175,18 +175,4 @@
 
 
 
-
-<div>
-	<form action="register.php" method="post">
-		<input type="text" name="user_test">
-		<button type="submit" name="test_btn"></button>
-	</form>
-</div>
-<?php
-	if(isset($_POST['test_btn'])){
-		$users_test = get_users_data($conn, "username");
-		echo in_array(strtolower($_POST['user_test']) , $users_test);
-	}
-?>
-
 <?php include "includes/footer.php"; ?>

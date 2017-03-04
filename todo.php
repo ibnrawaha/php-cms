@@ -55,6 +55,8 @@
 
 	// if user submitted task/s and he is really a member.
 	if(isset($_POST['submit']) && isset($_SESSION['username'])){
+		// $title = mysqli_real_escape_string ($conn, $_POST['title']);
+		// $date = mysqli_real_escape_string ($conn, $_POST['date']);
 		$title = $_POST['title'];
 		$date = $_POST['date'];
 		$username = $_SESSION['username'];
@@ -63,7 +65,7 @@
 		if(!empty($title[$inputs-1]) && !empty($title[0]) ){
 			// loop to seperate task array and date array so i can save it as a single mysql row
 			for($row=0 ; $row < $inputs ; $row++){
-				$query = "INSERT INTO todo (task, date, username) VALUES ('$title[$row]', '$date[$row]', '$username');";
+				$query = "INSERT INTO todo (task, date, username) VALUES ('". mysqli_real_escape_string($conn, $title[$row]) ."', '". mysqli_real_escape_string($conn, $date[$row]) ."', '$username');";
 				$add_todo = mysqli_query($conn , $query);
 				if(!$add_todo) {
 					echo mysqli_error($conn);
@@ -84,3 +86,5 @@
 
 
 </div>
+
+<?php include "includes/footer.php"; ?>

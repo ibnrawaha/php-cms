@@ -3,20 +3,31 @@
 	padding:0px;
 }
 
+a {
+	text-decoration: none;
+	color:#bde1ef;
+}
+
 #main {
 	width:80%;
 	height: 100%;
 	margin:auto;
-	background-color: gray;
+	/* background-color: gray; */
 	/*padding:10px;*/
 	/*border:black solid 1px;*/
 }
 
 #nav {
-	height: 200px;
-	background-color: #FF6138;
+	height: 250px;
+	background-color: #77c1dc;
 	color: white;
 	/*margin:auto ;*/
+}
+
+#footer {
+	height: 250px;
+	background-color: #77c1dc;
+	color: white;
 }
 
 #nav h1 {
@@ -29,16 +40,26 @@
 #nav p {
     position:relative;
     top:70px;
-    left:30px;   
+	float: right;
+	padding: 5px 20px;
+	line-height: 200%;
+	background-color: #5895ab;
 }
 
 #nav p a {
-    color: #b0ea88;
+	background-color: #5895ab;
+    padding: 5px;
+    color: #bde1ef;
+}
+
+#nav p a:hover {
+	background-color: white;
 }
 
 #menu {
 	/* width:20%; */
-	background-color: #00A388;
+	background-color: #5895ab;
+	z-index: 3;
 	/* float:left; */
 	/* height :100%; */
 	/* display:inline-block; */
@@ -49,12 +70,41 @@ ul {
 	list-style-type: none;	
 }
 #page {
-	Padding:30px;
+	Padding:70px;
 	/* width:100%; */
-	background-color: #79BD8F;
-	height:100%;
+	/* background-color: #79BD8F; */
+	/* height:100%; */
 	/* float:right; */
 	/* position:relative; */
+}
+
+#page a {
+    padding: 5px;
+    background-color: #5895ab;
+}
+
+#page a:hover {
+    padding: 5px;
+    background-color: #bde1ef;
+	color: #5895ab;
+}
+
+h2 {
+    color: #115849;
+}
+
+.page_status{
+    margin: 0 20px;
+    background-color: #77c1dc;
+    padding: 5px;
+    float: right;
+    font-size: .9em;
+}
+
+.page_content {
+	margin: 10px 0;
+	padding: 20px 10;
+	border: 1px dotted gray;
 }
 
 .selected {
@@ -65,14 +115,14 @@ ul {
 }
 
 .selected a {
-	color:#b0ea88;
+	color:#bde1ef;
 }
 
 .form_container{
 	margin: 60 auto;
     width: 500px;
     height: 300px;
-    background-color: rgba(185, 95, 137, 0.7);
+    background-color: rgb(119, 193, 220);
     padding-top: 50px;
 	position:relative;
 }
@@ -82,7 +132,7 @@ ul {
     top: -60px;
     width: 475px;
     height: 80px;
-    background: brown;
+    background: #5895ab;
 	padding-left: 25px;
     padding-top: 5px;
 }
@@ -105,21 +155,24 @@ ul {
     font-size: 16px;
     display: block;
     margin-bottom: 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: none;
 	padding-left: 30px;
 	color: darkgrey;
+	border: 1px dotted gray;
 }
 
 button {
-	width: 250px;
+    width: 250px;
     height: 40px;
     font-size: 16px;
     display: block;
-    margin:auto;
-    border-radius: 5px;
-    border: none;
-	box-shadow: inset 0 -12px 10px 0px rgba(128, 116, 116, 0.2);
+    margin: auto;
+    /* border-radius: 5px; */
+    /* box-shadow: inset 0 -12px 10px 0px rgba(128, 116, 116, 0.2); */
+    color: #5895ab;
+    border: 3px #5895ab solid;
+    background-color: #c1e2ef;
 }
 
 button:hover {
@@ -128,9 +181,12 @@ button:hover {
     /* font-size: 16px; */
     /* display: block; */
     /* margin:auto; */
-    border-radius: 5px;
-    border: none;
-	box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2);
+	color: #c1e2ef;
+    border: 3px #c1e2ef solid;
+    background-color: #5895ab;
+    /* border-radius: 5px; */
+    /* border: none; */
+	/* box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2); */
 }
 
 button:active {
@@ -139,10 +195,13 @@ button:active {
     /* font-size: 16px; */
     /* display: block; */
     /* margin:auto; */
-    border-radius: 5px;
-    border: none;
-	box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2);
-	background-color:#d0adad;
+	color: #c1e2ef;
+    border: 3px #5895ab solid;
+    background-color: #5895ab;
+    /* border-radius: 5px; */
+    /* border: none; */
+	/* box-shadow: inset 0 12px 10px 0px rgba(128, 116, 116, 0.2); */
+	/* background-color:#d0adad; */
 }
 
 .edit_page {
@@ -247,7 +306,7 @@ ul.menu_ul {
 }
 
 li.menu_li:hover {
-    background-color: aqua;
+    background-color: #287171;
 }
 
 ul.page_ul {
@@ -261,7 +320,7 @@ ul.page_ul {
 .page_li {
 	padding:5px 0;
 	opacity: 0;
-	background-color: #1ce2e2;
+	background-color: #287171;
 	position: absolute;
 	top:-30px;
 	
@@ -278,11 +337,16 @@ ul.page_ul {
 	background-color: aqua;
 }
 
+.page_li:hover a {
+    color: #287171;
+}
+
 .apps {
 	position: absolute;
-	right:0;
-	width: 150px;
-	background-color: #00a388;;
+	right: -135px;
+    top: 0px;
+	width: 135px;
+	background-color: #5895ab;
 	text-align: center;
 	padding: 20px 0;
 }
@@ -295,3 +359,9 @@ ul.page_ul {
 #menu {
 	position: relative;
 }
+
+.copyright {
+	float:right;
+	padding: 10px;
+}
+
