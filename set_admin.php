@@ -10,8 +10,8 @@
 
 <div id="page">
 	<form method='post' action='set_admin.php'>
-	Search for particular user:<br>Or hit search to look into database<br><input type="text" name="search">
-	<input type="submit" name="search_btn" value="Search"><br>
+	Search for particular user:<br>Or hit search to look into database<br><input class="edit_title" type="text" name="search">
+	<button type="submit" name="search_btn" value="Search">Search</button><br>
 <?php 
 	//Search for users to pick admins
 	if(isset($_POST['search_btn'])){
@@ -30,7 +30,8 @@
 			echo mysqli_error($conn);
 		}
 		while ($row = mysqli_fetch_assoc($get_users)){
-			echo $row['username'];
+			echo "<div class='users_divs'>";
+			echo "<span class='admin_username'>".$row['username']."</span>";
 			
 			if ($row['author'] == 0){
 				//setting [Set admin] & [Drop admin] buttons depending on user status from database
@@ -46,7 +47,7 @@
 			}else {
 				echo " <b style='color:red;'>Founder</b>";
 			}
-			echo "<br>";
+			echo "</div>";
 		}
 		mysqli_free_result($get_users);
 		echo "</form>";

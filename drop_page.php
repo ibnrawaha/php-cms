@@ -9,14 +9,14 @@
 	<ul>
 		<?php
 			while($menu = mysqli_fetch_assoc($get_menu)){
-				echo '<li><input type="checkbox" name="del_menu[]" value="'.$menu['menu_name'].'">';
+				echo '<li class="menu_to_delete"><input type="checkbox" name="del_menu[]" value="'.$menu['menu_name'].'">';
 				echo $menu['menu_name'];
-					echo "<ul>";
 					$query = "SELECT * FROM pages;";
 					$get_pages = mysqli_query($conn, $query);
+					echo "<ul>";
 					while($page = mysqli_fetch_assoc($get_pages)){
 						if($page['menus_id'] == $menu['id']){
-							echo '<li><input type="checkbox" name="del_page[]" value="'.$page['pages'].'">';
+							echo '<li class="page_to_delete"><input type="checkbox" name="del_page[]" value="'.$page['pages'].'">';
 							echo "<b>" . $page['pages'] . "</b></li>"; 
 						}
 					}
