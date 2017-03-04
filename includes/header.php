@@ -35,7 +35,9 @@
 <body>
 	<div id="main">
 		<div id="nav">
-			<h1><a href="index.php" style="color:white; text-decoration:none;">Welcome to the first C.M.S.</a></h1>
+			<h1><a href="index.php" style="color:white; text-decoration:none;">Welcome to the C.M.S.</a></h1>
+			
+			
 			<p>
 			<?php
 			if(isset($_SESSION['username'])){
@@ -43,18 +45,24 @@
 				echo "<a href='index.php?action=logout'>Logout</a>";
 				echo " | Welcome, " . $_SESSION['username'];
 				echo "<br>";
-				if(isset($_SESSION['todo_counter'])){
-					echo "You have <b><a href='mytodo.php' style='text-decoration:none; color:red; background-color:yellow;'>(".$_SESSION['todo_counter'].")</a></b> TODO tasks.";
-				}else{
+				
+				//todo counter
+				$query = "SELECT * FROM todo WHERE username = '".$_SESSION['username']."';";
+				$getting_todo = mysqli_query($conn, $query);
+				$todo_counter = mysqli_num_rows($getting_todo);
+				if ($todo_counter == 0){
 					echo "You have <b><a href='mytodo.php' style='text-decoration:none; color:red; background-color:yellow;'>(0)</a></b> TODO tasks.";
+				}else{
+					echo "You have <b><a href='mytodo.php' style='text-decoration:none; color:red; background-color:yellow;'>(".$todo_counter.")</a></b> TODO tasks.";
 				}
+				mysqli_free_result($getting_todo);
 				echo '<br><a href="profile.php">My Profile</a>';
 			}else {
 				echo "<a href='login.php'";
 				if (basename($_SERVER['PHP_SELF']) == "login.php"){
 					echo "class = 'selected'";
 				}
-				echo ">Login</a> | ";
+				echo ">Login</a> |  ";
 				echo "<a href='register.php'";
 				if (basename($_SERVER['PHP_SELF']) == "register.php"){
 					echo "class = 'selected'";
@@ -63,6 +71,7 @@
 			}
 			?>
 			</p>
+			
 		</div>
 
 		
